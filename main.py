@@ -5,7 +5,12 @@ import json
 import os
 from datetime import datetime
 import gc
+import re
 
+st.set_page_config(
+    "TEXT TO PNG",
+    "🔮"
+)
 # Load the JSON data for Google Fonts
 with open('google_fonts.json', 'r') as f:
     font_data = json.load(f)
@@ -42,6 +47,8 @@ text = st.text_input("✏️ Enter Text:", "Hello, Streamlit!")
 # Dropdown to select font
 font_options = [font['family'] for font in font_data['items']]
 font_name = st.selectbox("🔡 Select Font:", font_options)
+preview = re.sub(r'\s', '%20', font_name) + "%20font"
+st.markdown(f"[CLICK ME TO SEE PREVIEW OF FONT!](https://www.google.co.in/search?q=+{preview}+&source=lnms&tbm=isch)")
 
 # Color picker for foreground text color
 color = st.color_picker("🌈 Select Text Color:", "#000000")
@@ -80,4 +87,4 @@ if st.button("🖌 Generate PNG 🎨"):
     os.remove(font_file_path)
 
     # Provide a sign-off note
-    st.markdown("✨ Made By Vijay 🌟")
+    st.success("✨ Made By Vijay 🌟")
