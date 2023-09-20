@@ -48,7 +48,7 @@ text = st.text_input("✏️ Enter Text:", "Hello, Streamlit!")
 font_options = [font['family'] for font in font_data['items']]
 font_name = st.selectbox("🔡 Select Font:", font_options)
 preview = re.sub(r'\s', '%20', font_name) + "%20font"
-st.markdown(f"[CLICK ME TO SEE PREVIEW OF FONT!](https://www.google.co.in/search?q=+{preview}+&source=lnms&tbm=isch)")
+st.markdown(f"[CLICK ME TO SEE PREVIEW OF FONT!](https://www.google.com/search?q=+{preview}+&source=lnms&tbm=isch)")
 
 # Color picker for foreground text color
 color = st.color_picker("🌈 Select Text Color:", "#000000")
