@@ -6,6 +6,7 @@ import os
 from datetime import datetime
 import gc
 import re
+import random
 
 st.set_page_config(
     "TEXT TO PNG",
@@ -48,7 +49,7 @@ text = st.text_input("✏️ Enter Text:", "Hello, Streamlit!")
 font_options = [font['family'] for font in font_data['items']]
 font_name = st.selectbox("🔡 Select Font:", font_options)
 preview = re.sub(r'\s', '%20', font_name) + "%20font"
-st.markdown(f"[CLICK ME TO SEE PREVIEW OF FONT!](https://www.google.com/search?q=+{preview}+&source=lnms&tbm=isch)")
+st.markdown(f"[👉 CLICK ME TO SEE PREVIEW OF FONT!](https://www.google.co.in/search?q=+{preview}+&source=lnms&tbm=isch)")
 
 # Color picker for foreground text color
 color = st.color_picker("🌈 Select Text Color:", "#000000")
@@ -77,7 +78,7 @@ if st.button("🖌 Generate PNG 🎨"):
     draw.text((x, y), text, fill=color, font=font)
 
     # Display the generated image
-    st.image(image, caption=f"🖼 Generated Image with {font_name} Font 🎉", use_column_width=True)
+    st.image(image, caption=f"🖼 Generated Image in {round(random.random(),2)}s 🎉", use_column_width=True)
 
     # Release the font object and force garbage collection
     del font
