@@ -46,7 +46,7 @@ def fetch_google_font(font_name):
 st.title("🎨 Text to PNG Generator 🌌")
 
 # Take input from user for the text
-text = st.text_input("✏️ Enter Text:", "Made By Vijay")
+text = st.text_input("✏️ Enter Text:", "Made By Vijay - Oatlands")
 # Dropdown list for selecting font
 font_options = [font["family"] for font in font_data["items"]]
 font_name = st.selectbox("🔡 Select Font:", font_options)
